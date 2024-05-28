@@ -13,8 +13,7 @@ class CastController extends Controller
      */
     public function index()
     {
-        $casts = Cast::select('id','nama', 'umur')->get();
-        return view('cast.index', compact('casts'));
+        //
     }
 
     /**
@@ -42,7 +41,6 @@ class CastController extends Controller
     public function show(Cast $cast)
     {
         //
-        return view('cast.show', compact('cast'));
     }
 
     /**
@@ -51,7 +49,6 @@ class CastController extends Controller
     public function edit(Cast $cast)
     {
         //
-        return view('cast.edit', compact('cast'));
     }
 
     /**
@@ -60,10 +57,6 @@ class CastController extends Controller
     public function update(UpdateCastRequest $request, Cast $cast)
     {
         //
-        $cast->update($request->all());
-        return redirect()
-        ->route('cast.index')
-        ->with(['success' =>  'Data' .$request['nama']. 'berhasil disimpan']);
     }
 
     /**
@@ -72,7 +65,5 @@ class CastController extends Controller
     public function destroy(Cast $cast)
     {
         //
-        $cast->delete();
-        return redirect()->route('cast.index')->with('success', 'Cast deleted successfully');
     }
 }
